@@ -1,0 +1,279 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		969CDF4014C81D5500A3413E /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 969CDF3F14C81D5500A3413E /* UIKit.framework */; };
+		969CDF4214C81D5500A3413E /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 969CDF4114C81D5500A3413E /* Foundation.framework */; };
+		969CDF4414C81D5500A3413E /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 969CDF4314C81D5500A3413E /* CoreGraphics.framework */; };
+		969CDF4A14C81D5500A3413E /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 969CDF4814C81D5500A3413E /* InfoPlist.strings */; };
+		969CDF4C14C81D5500A3413E /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 969CDF4B14C81D5500A3413E /* main.m */; };
+		969CDF5014C81D5500A3413E /* HBDAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 969CDF4F14C81D5500A3413E /* HBDAppDelegate.m */; };
+		969CDF5314C81D5500A3413E /* HBDViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 969CDF5214C81D5500A3413E /* HBDViewController.m */; };
+		969CDF5614C81D5500A3413E /* HBDViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 969CDF5414C81D5500A3413E /* HBDViewController.xib */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		969CDF3B14C81D5500A3413E /* DownloadDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DownloadDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		969CDF3F14C81D5500A3413E /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		969CDF4114C81D5500A3413E /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		969CDF4314C81D5500A3413E /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		969CDF4714C81D5500A3413E /* DownloadDemo-Info.plist */ = {isa = PBXFileReference; path = "DownloadDemo-Info.plist"; sourceTree = "<group>"; };
+		969CDF4914C81D5500A3413E /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		969CDF4B14C81D5500A3413E /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		969CDF4D14C81D5500A3413E /* DownloadDemo-Prefix.pch */ = {isa = PBXFileReference; path = "DownloadDemo-Prefix.pch"; sourceTree = "<group>"; };
+		969CDF4E14C81D5500A3413E /* HBDAppDelegate.h */ = {isa = PBXFileReference; path = HBDAppDelegate.h; sourceTree = "<group>"; };
+		969CDF4F14C81D5500A3413E /* HBDAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HBDAppDelegate.m; sourceTree = "<group>"; };
+		969CDF5114C81D5500A3413E /* HBDViewController.h */ = {isa = PBXFileReference; path = HBDViewController.h; sourceTree = "<group>"; };
+		969CDF5214C81D5500A3413E /* HBDViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HBDViewController.m; sourceTree = "<group>"; };
+		969CDF5514C81D5500A3413E /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/HBDViewController.xib; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		969CDF3814C81D5500A3413E /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				969CDF4014C81D5500A3413E /* UIKit.framework in Frameworks */,
+				969CDF4214C81D5500A3413E /* Foundation.framework in Frameworks */,
+				969CDF4414C81D5500A3413E /* CoreGraphics.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		969CDF3014C81D5500A3413E = {
+			isa = PBXGroup;
+			children = (
+				969CDF4514C81D5500A3413E /* DownloadDemo */,
+				969CDF3E14C81D5500A3413E /* Frameworks */,
+				969CDF3C14C81D5500A3413E /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		969CDF3C14C81D5500A3413E /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				969CDF3B14C81D5500A3413E /* DownloadDemo.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		969CDF3E14C81D5500A3413E /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				969CDF3F14C81D5500A3413E /* UIKit.framework */,
+				969CDF4114C81D5500A3413E /* Foundation.framework */,
+				969CDF4314C81D5500A3413E /* CoreGraphics.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		969CDF4514C81D5500A3413E /* DownloadDemo */ = {
+			isa = PBXGroup;
+			children = (
+				969CDF4E14C81D5500A3413E /* HBDAppDelegate.h */,
+				969CDF4F14C81D5500A3413E /* HBDAppDelegate.m */,
+				969CDF5114C81D5500A3413E /* HBDViewController.h */,
+				969CDF5214C81D5500A3413E /* HBDViewController.m */,
+				969CDF5414C81D5500A3413E /* HBDViewController.xib */,
+				969CDF4614C81D5500A3413E /* Supporting Files */,
+			);
+			path = DownloadDemo;
+			sourceTree = "<group>";
+		};
+		969CDF4614C81D5500A3413E /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				969CDF4714C81D5500A3413E /* DownloadDemo-Info.plist */,
+				969CDF4814C81D5500A3413E /* InfoPlist.strings */,
+				969CDF4B14C81D5500A3413E /* main.m */,
+				969CDF4D14C81D5500A3413E /* DownloadDemo-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		969CDF3A14C81D5500A3413E /* DownloadDemo */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 969CDF5914C81D5500A3413E /* Build configuration list for PBXNativeTarget "DownloadDemo" */;
+			buildPhases = (
+				969CDF3714C81D5500A3413E /* Sources */,
+				969CDF3814C81D5500A3413E /* Frameworks */,
+				969CDF3914C81D5500A3413E /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = DownloadDemo;
+			productName = DownloadDemo;
+			productReference = 969CDF3B14C81D5500A3413E /* DownloadDemo.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		969CDF3214C81D5500A3413E /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0420;
+			};
+			buildConfigurationList = 969CDF3514C81D5500A3413E /* Build configuration list for PBXProject "DownloadDemo" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 969CDF3014C81D5500A3413E;
+			productRefGroup = 969CDF3C14C81D5500A3413E /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				969CDF3A14C81D5500A3413E /* DownloadDemo */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		969CDF3914C81D5500A3413E /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				969CDF4A14C81D5500A3413E /* InfoPlist.strings in Resources */,
+				969CDF5614C81D5500A3413E /* HBDViewController.xib in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		969CDF3714C81D5500A3413E /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				969CDF4C14C81D5500A3413E /* main.m in Sources */,
+				969CDF5014C81D5500A3413E /* HBDAppDelegate.m in Sources */,
+				969CDF5314C81D5500A3413E /* HBDViewController.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		969CDF4814C81D5500A3413E /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				969CDF4914C81D5500A3413E /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		969CDF5414C81D5500A3413E /* HBDViewController.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				969CDF5514C81D5500A3413E /* en */,
+			);
+			name = HBDViewController.xib;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		969CDF5714C81D5500A3413E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		969CDF5814C81D5500A3413E /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		969CDF5A14C81D5500A3413E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "DownloadDemo/DownloadDemo-Prefix.pch";
+				INFOPLIST_FILE = "DownloadDemo/DownloadDemo-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		969CDF5B14C81D5500A3413E /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "DownloadDemo/DownloadDemo-Prefix.pch";
+				INFOPLIST_FILE = "DownloadDemo/DownloadDemo-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		969CDF3514C81D5500A3413E /* Build configuration list for PBXProject "DownloadDemo" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				969CDF5714C81D5500A3413E /* Debug */,
+				969CDF5814C81D5500A3413E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		969CDF5914C81D5500A3413E /* Build configuration list for PBXNativeTarget "DownloadDemo" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				969CDF5A14C81D5500A3413E /* Debug */,
+				969CDF5B14C81D5500A3413E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 969CDF3214C81D5500A3413E /* Project object */;
+}
