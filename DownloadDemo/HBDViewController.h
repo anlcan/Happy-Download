@@ -7,7 +7,20 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "HappyDownload.h"
 
-@interface HBDViewController : UIViewController
+@interface HBDViewController : UIViewController <UITableViewDelegate, UITableViewDataSource, ASIHTTPRequestDelegate, HappyDownloadProgress>{
+    
+    IBOutlet UITableView *table;
+    IBOutlet UIProgressView *mainProgress;
+    IBOutlet UIButton *downloadButton;
+    
+    NSMutableArray * workers; 
+    HappyDownload * currentDownload;
+    
+    NSDate* start; 
+    int totalWorker; 
+}
+- (IBAction)mainButtonClicked:(id)sender;
 
 @end
