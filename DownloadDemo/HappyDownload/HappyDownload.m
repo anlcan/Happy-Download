@@ -21,14 +21,14 @@
 -(id)init{
     
     self = [super init]; 
+    
     if(self){
         
         retryCount 	= 15;
         
         totalChunk  	= [[ASINetworkQueue queue] maxConcurrentOperationCount] * 2; 
         numberOfWorkers = [[ASINetworkQueue queue] maxConcurrentOperationCount] - 1; 
-       
-        
+               
         requests 	= [NSMutableArray new]; 
         parts 		= [NSMutableArray new]; 
         paths	 	= [NSMutableArray new]; 
@@ -39,18 +39,19 @@
 
 -(void)fireDownloadAtIndex:(int)index{
     
-    NSString * range = [partsAvailable objectAtIndex:index];
-    NSString * tmp = tmpFile(range);
-    NSString * tmptmp = [NSString stringWithFormat:@"%@%~", tmp]; 
+    NSString * range 	= [partsAvailable objectAtIndex:index];
+    NSString * tmp 		= tmpFile(range);
+    NSString * tmptmp 	= [NSString stringWithFormat:@"%@%~", tmp]; 
         
-    NSArray * ranges = [range componentsSeparatedByString:@"-"];
-    int start = [[ranges objectAtIndex:0] intValue];
-    int end = [[ranges objectAtIndex:1] intValue]; 
+    NSArray * ranges 	= [range componentsSeparatedByString:@"-"];
+    int start 			= [[ranges objectAtIndex:0] intValue];
+    int end 			= [[ranges objectAtIndex:1] intValue]; 
     
     ASIHTTPRequest * req = [ASIHTTPRequest requestWithURL:url];    
-    [req setTemporaryFileDownloadPath:tmptmp]; 
-    [req setAllowResumeForFileDownloads:self.allowResumeForFileDownloads]; 
     [req setDownloadDestinationPath:tmp];
+    [req setTemporaryFileDownloadPath:tmptmp]; 
+    [req setAllowResumeForFileDownloads:NO]; // resume will be calculated with parts. 
+    
     [req setTag:[parts indexOfObject:range]]; 
     
     NSMutableDictionary * dict = [NSMutableDictionary dictionaryWithCapacity:2];
@@ -62,8 +63,6 @@
     req.delegate = self; 
     req.downloadProgressDelegate = self;     
         
-    if ( allowResumeForFileDownloads)
-        start += [req partialDownloadSize];
     [req addRequestHeader:@"Range" value:[NSString stringWithFormat:@"bytes=%d-%d", start,end]];
         
     _NSLog(@"downloading: %d-%d at %d", start, end, req.tag);
@@ -98,6 +97,8 @@
 }
 
 -(void)startAsynchronous{
+    
+    // sending HEAD Request fails on aws and some other servers....
     sentinelRequest = [ASIHTTPRequest requestWithURL:url];    
     sentinelRequest.delegate = self;    
     [sentinelRequest  startAsynchronous]; 
@@ -131,17 +132,19 @@
         start = stop; 
         stop  = MIN(chunk+stop, totalBytes); 
         
-        if (start!=0)
-            start++; 
+        if (start!=0)start++; 
         
         NSString * range = [NSString stringWithFormat:@"%d-%d", start, stop]; 
-        if ( self.allowResumeForFileDownloads && [[NSFileManager defaultManager] fileExistsAtPath:tmpFile(range)]){
-            NSLog(@"found in cache %@", range);
+        if ( self.allowResumeForFileDownloads && 
+            //[[NSFileManager defaultManager] fileExistsAtPath:tmpFile(range)] && omitted
+            [[[NSFileManager defaultManager] attributesOfItemAtPath:tmpFile(range) error:nil] fileSize] == stop-start){
+            
+            _NSLog(@"found in cache %@", range);
             progress  += [[[NSFileManager defaultManager] attributesOfItemAtPath:tmpFile(range) error:nil] fileSize];
                            
         } else {
             [parts addObject:range]; 
-            NSLog(@"ready %@", range); 
+            _NSLog(@"ready %@", range); 
         }
     }
     
@@ -233,7 +236,7 @@
             NSString * tmp = tmpFile(range); 
             NSData  *data = [[NSFileManager defaultManager] contentsAtPath:tmp];
             
-            NSLog(@"appending %d bytes from tmp:%@", [data length], [tmp lastPathComponent]);
+            _NSLog(@"appending %d bytes from tmp:%@", [data length], [tmp lastPathComponent]);
                                     
             [myHandle writeData:data]; 
             
@@ -246,7 +249,7 @@
         
         [myHandle closeFile]; 
         
-        NSLog(@"finished dowloading %d in %.3f at %@", totalBytes, [NSDate timeIntervalSinceReferenceDate] - startTime, [self.downloadDestinationPath lastPathComponent]);
+        _NSLog(@"finished dowloading %d in %.3f at %@", totalBytes, [NSDate timeIntervalSinceReferenceDate] - startTime, [self.downloadDestinationPath lastPathComponent]);
         
         //all requests are finished
         [self performSelector:@selector(reportFinished)]; 

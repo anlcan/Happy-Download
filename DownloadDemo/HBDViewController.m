@@ -23,6 +23,8 @@
     [super viewDidLoad];
     
     mainProgress.progress = 0.0; 
+    // worker progresses
+    workers = [[NSMutableArray alloc] initWithCapacity:currentDownload.totalChunk]; 
 
 }
 
@@ -38,28 +40,26 @@
         
     } else {
     
-        totalWorker = 3; 
+        totalWorker = 1; 
         NSString * tmp = @"http://ipv4.download.thinkbroadband.com/20MB.zip";	
         
         currentDownload = [[HappyDownload alloc] initWithURL:[NSURL URLWithString:tmp]]; 
         currentDownload.numberOfWorkers = totalWorker; 
+        currentDownload.totalChunk = 14; 
         currentDownload.delegate = self; 
         currentDownload.downloadProgressDelegate = self;
-        //currentDownload.allowResumeForFileDownloads = YES; 
+        currentDownload.allowResumeForFileDownloads = YES; 
         
         NSString *documentsDirectory = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) objectAtIndex:0];
         [currentDownload setDownloadDestinationPath:[documentsDirectory stringByAppendingPathComponent:@"file.pdf"]]; 
         
-        // worker progresses
-
-        workers = [[NSMutableArray alloc] initWithCapacity:currentDownload.totalChunk]; 
-        
-        
+        [workers removeAllObjects]; 
+                
         [currentDownload startAsynchronous]; 
         [downloadButton setTitle:@"CANCEL" forState:UIControlStateNormal]; 
-    }
-    
-    start = [NSDate new]; 
+        start = [NSDate new]; 
+    }    
+   
     [table reloadData]; 
 }
 
@@ -83,14 +83,16 @@
 
 -(void)requestFinished:(ASIHTTPRequest *)request{
                 
-    int duration = [[[NSCalendar currentCalendar] components:NSSecondCalendarUnit fromDate:start 
-                                                                toDate:[[NSDate new] autorelease] 
-                                                                options:0] second];
+    NSDateComponents *comps = [[NSCalendar currentCalendar] components:NSSecondCalendarUnit 
+                                                    fromDate:start 
+                                                      toDate:[[NSDate new] autorelease] 
+                                                     options:0];
+    int duration  = [comps second]; 
     
     
-    NSString * msg = [NSString stringWithFormat:@"your download finished in %d seconds" , duration];
+    NSString * msg = [NSString stringWithFormat:@"your download %d bytes finished in %d seconds", [request totalBytesRead],  duration];
     
-    UIAlertView * alert = [[UIAlertView alloc] initWithTitle:@""
+    UIAlertView * alert = [[UIAlertView alloc] initWithTitle:@"RESULT"
                                                      message:msg
                                                     delegate:nil
                                            cancelButtonTitle: @"OK"
