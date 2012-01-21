@@ -39,8 +39,6 @@
     } else {
     
         totalWorker = 3; 
-        // 3.7 MB
-        //NSString * tmp = @"https://s3-eu-west-1.amazonaws.com/campaigntr/Ocak2012/dergi.pdf";
         NSString * tmp = @"http://ipv4.download.thinkbroadband.com/20MB.zip";	
         
         currentDownload = [[HappyDownload alloc] initWithURL:[NSURL URLWithString:tmp]]; 
@@ -85,7 +83,7 @@
 
 -(void)requestFinished:(ASIHTTPRequest *)request{
                 
-    NSTimeInterval duration = [[[NSCalendar currentCalendar] components:NSSecondCalendarUnit fromDate:start 
+    int duration = [[[NSCalendar currentCalendar] components:NSSecondCalendarUnit fromDate:start 
                                                                 toDate:[[NSDate new] autorelease] 
                                                                 options:0] second];
     
